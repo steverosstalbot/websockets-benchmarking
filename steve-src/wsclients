@@ -1,0 +1,12 @@
+#!/bin/bash
+instances=$1
+counter=1
+echo Spawning $instances of wsclient
+while [ $counter -le $instances ]
+do
+    echo Spawning wsclient $counter
+    (node ./wsclient 1 $counter 3000 10 &)
+    ((counter++))
+done
+echo Done
+
